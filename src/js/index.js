@@ -1,5 +1,8 @@
-const app = document.querySelector('#app')
-const p = document.createElement('p')
-p.innerText = '自作仮想DOM'
+import { h } from './vdom/h'
+import { render } from './vdom/render'
 
-app.appendChild(p)
+const view = h('p', { attrs: {}, children: ['自作virtual-dom'] })
+
+const app = render(view)
+const el = document.querySelector('#app')
+el.appendChild(app)
